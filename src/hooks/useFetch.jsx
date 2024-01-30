@@ -21,5 +21,6 @@ const useFetch = (url) => {
                 setLoading("Something went wrong!");
             })
     }, [url]);
-    return (data, loading, error);
+    return {data, loading, error};
 }
+export default useFetch;
