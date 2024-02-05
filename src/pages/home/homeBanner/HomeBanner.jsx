@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import "./homeBanner.scss";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
+import { useSelector } from 'react-redux';
+
 
 const HomeBanner = () => {
   const [background, setBackground] = useState("");
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const { data, loading } = useFetch("/movie/upcoming");
+  const { url } = useSelector((state) => state.home);
   
   useEffect(() => {
     const bg = data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
