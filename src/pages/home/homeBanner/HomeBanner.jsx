@@ -3,7 +3,7 @@ import "./homeBanner.scss";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import { useSelector } from 'react-redux';
-
+import Img from '../../../components/lazyLoadingImage/Img'
 
 const HomeBanner = () => {
   const [background, setBackground] = useState("");
@@ -13,7 +13,7 @@ const HomeBanner = () => {
   const { url } = useSelector((state) => state.home);
   
   useEffect(() => {
-    const bg = data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
+    const bg = url.backdrop + data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
     setBackground(bg);
   }, [data]);
 
@@ -24,6 +24,14 @@ const HomeBanner = () => {
   }  
   return (
     <div className="homeBanner">
+    {!loading && <div className='backdrop-img'>
+      <Img src={background} />
+    </div>}
+    
+    <div className='herobanner-opacity'>
+      
+    </div>
+
       <div className="wrapper">
         <div className="homeBannerContent">
           <span className='subTitle'>
