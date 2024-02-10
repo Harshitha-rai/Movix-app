@@ -23,9 +23,9 @@ const HomeBanner = () => {
     }
   }  
   return (
-    <div className="homeBanner">
+    <div className="heroBanner">
     {!loading && <div className='backdrop-img'>
-      <Img src={background} />
+      <Img src={background} alt='img'/>
     </div>}
     
     <div className='herobanner-opacity'>
@@ -33,7 +33,10 @@ const HomeBanner = () => {
     </div>
 
       <div className="wrapper">
-        <div className="homeBannerContent">
+        <div className="heroBannerContent">
+          <span className='title'>
+            Flixonics
+          </span>
           <span className='subTitle'>
             Discover popular Movies,
             TV shows and more
